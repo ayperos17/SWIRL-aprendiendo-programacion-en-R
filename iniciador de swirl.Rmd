@@ -27,3 +27,23 @@ swirl()
 help.start()
 ```
 
+#Data files manejo
+
+getwd()#Llamar el directorio
+ls()#listar objetos en R
+list.files()#listar archivos en el directorio de trabajo
+dir()#listar archivos en el directorio
+args()#Ver argumentos de una funcion
+dir.create("nombre de carpeta")# Crea una carpeta nueva, para lo que se necesite, realizar pruebas por ejemplo
+setwd("texto")# cambia la direccion de  trabajo, para carpeta dentro de la vieja direccion es necesario solo poner el nombre de la carpeta,
+#para cambiar direccion completa es necesario poner la direccion compelta del nuevo directorio
+file.create()# crea un archivo
+file.exists("archivo.name")#verificar si un archivo existe en el directorio
+file.info("archivo")#da informaion rlacionada con el archivo
+file.rename("file-name","new-name")#cambiar el nombre de un archivo, con la funcion 
+file.copy("file-name", "copy file") #crea copia un archivo, 
+file.path("mytest3.R")#cronsruye la ruta del archivo, util si se usa junto a dir.create
+dir.create(file.path("carpeta1","carpeta2"...), recursive = TRUE)#crea carpetas y subcarpetas en la direcciond e trabajo
+
+
+
