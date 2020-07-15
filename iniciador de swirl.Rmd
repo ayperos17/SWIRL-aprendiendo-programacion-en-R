@@ -9,13 +9,14 @@ output:
 
 pasos iniciales para empezar con remolino (swirl)
 
-```{r}
-library(swirl)
-install_from_swirl("R Programming")
-swirl()
-```
 
-#opciones generales para maneajr l programa
+
+install_from_swirl("R Programming")
+library(swirl)
+swirl()
+
+
+# opciones generales para maneajr l programa
 - Typing skip() allows you to skip the current question.
 - Typing play() lets you experiment with R on your own; swirl will ignore what you do...
 - UNTIL you type nxt() which will regain swirl's attention.
@@ -23,79 +24,77 @@ swirl()
 - Typing main() returns you to swirl's main menu
 - Typing info() displays these options again.
 
-#Para obtener ayuda
+# Para obtener ayuda
 
-```{r}
-help.start()
-```
 
-#Data files manejo
+# Data files manejo
 
-getwd()#Llamar el directorio
-ls()#listar objetos en R
-list.files()#listar archivos en el directorio de trabajo
-dir()#listar archivos en el directorio
-args()#Ver argumentos de una funcion
-dir.create("nombre de carpeta")# Crea una carpeta nueva, para lo que se necesite, realizar pruebas por ejemplo
-setwd("texto")# cambia la direccion de  trabajo, para carpeta dentro de la vieja direccion es necesario solo poner el nombre de la carpeta,
-- para cambiar direccion completa es necesario poner la direccion compelta del nuevo directorio
-file.create()# crea un archivo
-file.exists("archivo.name")#verificar si un archivo existe en el directorio
-file.info("archivo")#da informaion rlacionada con el archivo
-file.rename("file-name","new-name")#cambiar el nombre de un archivo, con la funcion 
-file.copy("file-name", "copy file") #crea copia un archivo, 
-file.path("mytest3.R")#cronsruye la ruta del archivo, util si se usa junto a dir.create
-dir.create(file.path("carpeta1","carpeta2"...), recursive = TRUE)#crea carpetas y subcarpetas en la direcciond e trabajo
+- getwd()#Llamar el directorio
+- ls()#listar objetos en R
+- list.files()#listar archivos en el directorio de trabajo
+- dir()#listar archivos en el directorio
+- args()#Ver argumentos de una funcion
+- dir.create("nombre de carpeta")# Crea una carpeta nueva, para lo que se necesite, realizar pruebas por ejemplo
+- setwd("texto")# cambia la direccion de  trabajo, para carpeta dentro de la vieja direccion es necesario solo poner el nombre de la carpeta
 
-#extraer elementos de un vector
-x[1:10] #para ver los priemros 20 elementos de un vector
-x[is.na(x)]#devuelve todos los valores NA del vector
-x[!is.na(x)]# como tiene el condicional ! devuelcve todos los elementos del vector que no son NA
-y[y > 0] # me muestra todos los valores mayores que cero
-x[!is.na(x) & x > 0] # con en item & se puede hacer selecciones para dos rasgos, por ejemplo valores que no sean Na y que sean amyores que cero
-names(vect)# retorna los nombres de un vector
+## para cambiar direccion completa es necesario poner la direccion compelta del nuevo directorio
+- file.create()# crea un archivo
+- file.exists("archivo.name")#verificar si un archivo existe en el directorio
+- file.info("archivo")#da informaion rlacionada con el archivo
+- file.rename("file-name","new-name")#cambiar el nombre de un archivo, con la funcion 
+- file.copy("file-name", "copy file") #crea copia un archivo, 
+- file.path("mytest3.R")#cronsruye la ruta del archivo, util si se usa junto a dir.create
+- dir.create(file.path("carpeta1","carpeta2"...), recursive = TRUE)#crea carpetas y subcarpetas en la direcciond e trabajo
 
-x[c(2, 10)] #me devuelve los elementos numero 2 y 10 del vector
-x[c(-2, -10)] ó x[-c(2, 10)] # me devuelve todos los elementos de x exceptuando a los hicados en 2 y 10
-names(vect2) <- c("foo", "bar", "norf")#agregar nombres a un vector
-identical(vect, vect2) #ver si dos objetos son iguales
+# extraer elementos de un vector
+- x[1:10] #para ver los priemros 20 elementos de un vector
+- x[is.na(x)]#devuelve todos los valores NA del vector
+- x[!is.na(x)]# como tiene el condicional ! devuelcve todos los elementos del vector que no son NA
+- y[y > 0] # me muestra todos los valores mayores que cero
+- x[!is.na(x) & x > 0] # con en item & se puede hacer selecciones para dos rasgos, por ejemplo valores que no sean Na y que sean amyores que cero
+- names(vect)# retorna los nombres de un vector
+
+- x[c(2, 10)] #me devuelve los elementos numero 2 y 10 del vector
+- x[c(-2, -10)] ó x[-c(2, 10)] # me devuelve todos los elementos de x exceptuando a los hicados en 2 y 10
+- names(vect2) <- c("foo", "bar", "norf")#agregar nombres a un vector
+- identical(vect, vect2) #ver si dos objetos son iguales
 
 
 
 
-#Secuencias de numeros en R
+# Secuencias de numeros en R
 Para preguntar por ayuda de simbolos ?":" #simbolo entre comillas
 seq(1,10, by=0.5) #Pare crear secuencias de ancho fijo
 - Varias maneras de hacer secuencias son
 
-1:length(my_seq) #se especifica quel maximo es la longitud de otro vector
-seq(along.with = my_seq) #misma funcion que la anterior
-seq_along(my_seq) # funcion especifica de R para crear secuencias de longitud de otro vector existente.
-rep(0, times = 40) #repite un valor N veces
-rep(c(0, 1, 2), times = 10)
-rep(c(0, 1, 2), each = 10) # la diferencia entre estos dos es que times entremezcla los valores, mientras each genera tres grupos de 0 1 y 2 respectivamente
+- 1:length(my_seq) #se especifica quel maximo es la longitud de otro vector
+- seq(along.with = my_seq) #misma funcion que la anterior
+- seq_along(my_seq) # funcion especifica de R para crear secuencias de longitud de otro vector existente.
+- rep(0, times = 40) #repite un valor N veces
+- rep(c(0, 1, 2), times = 10)
+- rep(c(0, 1, 2), each = 10) # la diferencia entre estos dos es que times entremezcla los valores, mientras each genera tres grupos de 0 1 y 2 respectivamente
 
-#Vectores y su estructura
-pueden sr vectores unicoso estar en una lista
-lso vectores pueden tener sólo un tipo de dato, los datos pueden ser: numeric, logical, character, integer y complex
-operadores logicos :The `<` and `>=` , `>`, `<=`, `==` for exact equality, and `!=` for inequality.
-- si tengo dos expresiones olicas: A and B,podemos rpeguntar si almenos una es evrdad con A | B (logical 'or' a.k.a. 'union') or o si ambas son verdad con A & B (logical 'and' a.k.a. 'intersection'). por ultimo, !A es una negación de A
+# Vectores y su estructura
+- pueden sr vectores unicoso estar en una lista
+- lso vectores pueden tener sólo un tipo de dato, los datos pueden ser: numeric, logical, character, integer y complex
+- operadores logicos :The `<` and `>=` , `>`, `<=`, `==` for exact equality, and `!=` for inequality.
+- si tengo dos expresiones olicas: A and B,podemos rpeguntar si almenos una es evrdad con A | B (logical 'or' a.k.a. 'union') or o si ambas son verdad con A & - B (logical 'and' a.k.a. 'intersection'). por ultimo, !A es una negación de A
 
-##vectores de caracteres
-paste(my_char, collapse = " ") ,para volver un vectores de caracteres un texto continuo
-paste("Hello", "world!", sep = " ") Sep dice que el separador es un espacio sencillo
+## vectores de caracteres
+- paste(my_char, collapse = " ") ,para volver un vectores de caracteres un texto continuo
+- paste("Hello", "world!", sep = " ") Sep dice que el separador es un espacio sencillo
 
-#NA values
-my_data <- sample(c(y, z), 100).#remuestrear dos subconjuntos
- my_data == NA devuelve los NA
- y<-rnorm(1000)
- z <- rep(NA, 1000)
+# NA values
+- my_data <- sample(c(y, z), 100).#remuestrear dos subconjuntos
+- my_data == NA devuelve los NA
+- y<-rnorm(1000)
+- z <- rep(NA, 1000)
  
- #vectores
- dim(my_vector) #da las dimenciones del vector
-dim(my_vector) <- c(4, 5) #da dimencioens al vetor
-attributes(my_vector #para ver atributos del vector
-my_data<-data.frame(patients, my_matrix) #convertir datos a data }.frame para poder tener varios tipos de datos 
+# vectores
+- dim(my_vector) #da las dimenciones del vector
+- dim(my_vector) <- c(4, 5) #da dimencioens al vetor
+- attributes(my_vector #para ver atributos del vector
+- my_data<-data.frame(patients, my_matrix) #convertir datos a data }.frame para poder tener varios tipos de datos 
 - para asignar nuevos nombres a las columnas
-cnames<-c("patient", "age", "weight", "bp", "rating", "test")
-colnames(my_data)<-cnames
+- cnames<-c("patient", "age", "weight", "bp", "rating", "test")
+- colnames(my_data)<-cnames
